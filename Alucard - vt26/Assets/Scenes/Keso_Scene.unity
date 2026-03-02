@@ -290,7 +290,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
   moveSpeed: 4
-  sprintSpeed: 8
   jumpForce: 800
   groundCheck: {fileID: 1587578427}
   groundCheckRadius: 0.1
@@ -298,6 +297,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  canDash: 1
+  power: 10
 --- !u!70 &388213361
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
