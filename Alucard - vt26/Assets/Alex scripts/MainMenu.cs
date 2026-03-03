@@ -20,22 +20,8 @@ public class MainMenu : MonoBehaviour
     }
     public void Play()
     {
-        SceneManager.LoadScene("MainGame");
-        MusicManager.Instance.PlayMusic("MainGame");
-    }
-    public void PlayDirt()
-    {
-        mapIndex = 0;
-        SceneManager.LoadScene("MainGame");
-        MusicManager.Instance.PlayMusic("MainGame");
-        Debug.Log("Selected Scifi Map " + mapIndex);
-    }
-    public void PlayScifi()
-    {
-        mapIndex = 1;
-        SceneManager.LoadScene("MainGame");
-        MusicManager.Instance.PlayMusic("MainGame");
-        Debug.Log("Selected Scifi Map " + mapIndex);
+        SceneManager.LoadScene("Town");
+        MusicManager.Instance.PlayMusic("Town");
     }
 
     public void Quit()
