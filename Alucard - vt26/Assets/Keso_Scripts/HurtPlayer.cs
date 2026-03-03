@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; //Så vi kan reloada scenen om vi dör
+
 
 public class HurtPlayer : MonoBehaviour
 {
@@ -13,14 +13,6 @@ public class HurtPlayer : MonoBehaviour
     }
     void Update()
     {
-        /*if (reloading)
-        {
-            waitToLoad -= Time.deltaTime;
-            if (waitToLoad <= 0)
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }
-        }*/ //om du enbart vill starta om scenen när player blir slagen
         if (isTouching)
         {
             waitToHurt -= Time.deltaTime;
@@ -35,9 +27,7 @@ public class HurtPlayer : MonoBehaviour
     {
         if (other.collider.tag == "Player")
         {
-            //other.gameObject.SetActive(false);
             other.gameObject.GetComponent<HealthManager>().HurtPlayer(damageToGive);
-            //reloading = true; 
             //om enemy colliderar med tag player, ge damage
         }
     }
@@ -58,4 +48,27 @@ public class HurtPlayer : MonoBehaviour
             //om enemy inte kolliderar med tag player, så är den falsk, och enemy...
         }
     }
+
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            other.gameObject.GetComponent<HealthManager>().HurtPlayer(damageToGive);
+            //om enemy colliderar med tag player, ge damage
+        }
+    }
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isTouching = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        isTouching = false;
+        waitToHurt = 2f;
+    }
+
 }
