@@ -10,14 +10,12 @@ public class Movement : MonoBehaviour
     public float groundCheckRadius = 0.2f; // Inom vilken radie kan vi röra marken
     public bool isGrounded = false; // Om vi är på marken eller inte
     public LayerMask groundLayer; // Vilket lager har marken
+    float mx;
 
-    
 
-    public bool canDash = true;
+    public float dashDistance = 10f;
     private bool isDashing;
-    public float power = 10f;
     private float cooldown = 2f;
-    private float time = 0.3f;
 
 
     public bool isFacingRight = false; //Player Sprite Flip
@@ -53,12 +51,25 @@ public class Movement : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            StartCoroutine(Dash());
+            StartCoroutine(Dash(1f));
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            StartCoroutine(Dash(-1f));
         }
 
     }
+
+    public void FixedUpdate()
+    {
+        if (!isDashing)
+        {
+            rb.linearVelocity = new Vector2(mx * moveSpeed, rb.linearVelocityY);
+        }
+    }
+
     public void OnCollisionEnter2D(Collision2D collision)
     {
         isGrounded = false;
@@ -82,17 +93,18 @@ public class Movement : MonoBehaviour
     }
 
 
-    private IEnumerator Dash()
+    IEnumerator Dash(float direction)
     {
-        canDash = false;
-        isDashing = false;
+        isDashing = true;
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0);
+        rb.AddForce(new Vector2(dashDistance * direction, 0f), ForceMode2D.Impulse);
+        float gravity = rb.gravityScale;
         rb.gravityScale = 0f;
-        rb.linearVelocity = new Vector2(transform.localScale.x * power, 0);
-        yield return new WaitForSeconds(time);
+
+        yield return new WaitForSeconds(0.3f);
         isDashing = false;
-        rb.gravityScale = 3;
+        rb.gravityScale = gravity;
         yield return new WaitForSeconds(cooldown);
-        canDash = true;
 
     }
 
