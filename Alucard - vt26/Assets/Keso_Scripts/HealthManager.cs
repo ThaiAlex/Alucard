@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthManager : MonoBehaviour
 {
@@ -22,10 +23,15 @@ public class HealthManager : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+            StartCoroutine(RespawnCoroutine());
         }
 
     }
 
+    IEnumerator RespawnCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 
 }
