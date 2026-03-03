@@ -11,12 +11,16 @@ public class Movement : MonoBehaviour
     public bool isGrounded = false; // Om vi är på marken eller inte
     public LayerMask groundLayer; // Vilket lager har marken
 
+    
 
     public bool canDash = true;
     private bool isDashing;
     public float power = 10f;
     private float cooldown = 2f;
     private float time = 0.3f;
+
+
+    public bool isFacingRight = false; //Player Sprite Flip
 
 
     private void Start()
