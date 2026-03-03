@@ -14,7 +14,8 @@ public class Movement : MonoBehaviour
 
 
     public float dashDistance = 10f;
-    private bool isDashing;
+    public bool isDashing = false;
+    public bool canDash = true;
     private float cooldown = 2f;
 
 
@@ -51,14 +52,16 @@ public class Movement : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        if (canDash && Input.GetKeyDown(KeyCode.LeftShift) && (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)))
         {
             StartCoroutine(Dash(1f));
+
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        if (canDash && Input.GetKeyDown(KeyCode.LeftShift) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)))
         {
             StartCoroutine(Dash(-1f));
         }
+
 
     }
 
@@ -95,16 +98,17 @@ public class Movement : MonoBehaviour
 
     IEnumerator Dash(float direction)
     {
+        canDash = false;
         isDashing = true;
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0);
         rb.AddForce(new Vector2(dashDistance * direction, 0f), ForceMode2D.Impulse);
         float gravity = rb.gravityScale;
         rb.gravityScale = 0f;
-
         yield return new WaitForSeconds(0.3f);
         isDashing = false;
         rb.gravityScale = gravity;
         yield return new WaitForSeconds(cooldown);
+        canDash = true;
 
     }
 
