@@ -680,6 +680,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   dashDistance: 15
+  isDashing: 0
+  canDash: 1
   isFacingRight: 0
 --- !u!70 &388213361
 CapsuleCollider2D:
@@ -832,8 +834,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 923aea4a5eb1cf245a922dfaf6b3e386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthManager
-  currentHealth: 7
   maxHealth: 7
+  currentHealth: 7
+  healthBar: {fileID: 0}
+  bloodEffect: {fileID: 0}
 --- !u!1 &564808895
 GameObject:
   m_ObjectHideFlags: 0
