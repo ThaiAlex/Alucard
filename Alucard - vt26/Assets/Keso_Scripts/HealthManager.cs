@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,5 +37,10 @@ public class HealthManager : MonoBehaviour
         }
 
         healthBar.SetCurrentHealth(currentHealth);
+    }
+
+    internal void HurtPlayer(int damageToGive)
+    {
+        throw new NotImplementedException();
     }
 }
