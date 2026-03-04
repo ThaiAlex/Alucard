@@ -1,10 +1,8 @@
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
-
-public class HurtPlayer : MonoBehaviour
+public class Trap_HurtPlayer : MonoBehaviour
 {
+
     private float waitToHurt = 1f; //vänta "x"f innan enemy ger skada till player
     private bool isTouching; //definerar om den rör vid player eller inte
     private HealthManager healthManager; //refererar till healthmanager scriptet
@@ -25,27 +23,32 @@ public class HurtPlayer : MonoBehaviour
             }
         }
     }
-
-
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.collider.tag == "Player")
         {
             other.gameObject.GetComponent<HealthManager>().HurtPlayer(damageToGive);
             //om enemy colliderar med tag player, ge damage
         }
     }
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.collider.tag == "Player")
         {
             isTouching = true;
+            //om enemy colliderar med tag player, så är isTouching sant och enemy stannar för att attackera
         }
     }
-    private void OnTriggerExit2D(Collider2D other)
+    private void OnCollisionExit2D(Collision2D other)
     {
-        isTouching = false;
-        waitToHurt = 2f;
+        if (other.collider.tag == "Player")
+        {
+            isTouching = false;
+            waitToHurt = 2f;
+            //om enemy inte kolliderar med tag player, så är den falsk, och enemy...
+        }
     }
+
+
 
 }
