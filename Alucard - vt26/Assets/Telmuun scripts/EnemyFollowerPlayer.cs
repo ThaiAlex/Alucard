@@ -10,7 +10,6 @@ public class EnemyFollowerPlayer : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-
     }
 
     
@@ -38,15 +37,15 @@ public class EnemyFollowerPlayer : MonoBehaviour
                 
                 Vector3 direction = player.transform.position - transform.position;
                 Debug.DrawRay(transform.position, direction, Color.green);
+                GetComponent<Enemy_Patrol>().enabled = false;
             }
             else
             {
 
                 Vector3 direction = player.transform.position - transform.position;
                 Debug.DrawRay(transform.position, direction, Color.red);
-
+                GetComponent<Enemy_Patrol>().enabled = true;
             }
-
 
 
         }
