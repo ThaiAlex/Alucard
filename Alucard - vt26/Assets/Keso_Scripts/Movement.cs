@@ -19,7 +19,8 @@ public class Movement : MonoBehaviour
     private float cooldown = 2f;
 
 
-    public bool isFacingRight = false; //Player Sprite Flip
+    public bool isFlipping = false;
+    public int facingDirection = 1;
 
 
     private void Start()
@@ -41,12 +42,15 @@ public class Movement : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.A) || (Input.GetKey(KeyCode.LeftArrow)))
             {
-            transform.Translate(Vector2.left * (Time.deltaTime * moveSpeed));
+                transform.Translate(Vector2.left * (Time.deltaTime * moveSpeed));
+
             }
 
             if (Input.GetKey(KeyCode.D) || (Input.GetKey(KeyCode.RightArrow)))
             {
-            transform.Translate(Vector2.right * (Time.deltaTime * moveSpeed));
+                transform.Translate(Vector2.right * (Time.deltaTime * moveSpeed));
+                StartCoroutine(Flip(-1f));
+
             }
 
         }
@@ -112,5 +116,13 @@ public class Movement : MonoBehaviour
 
     }
 
+    IEnumerator Flip(float direction)
+    {
+        isFlipping = true;
+        transform.Rotate(0, 180, 0);
+        facingDirection *= -1;
+        yield return new WaitForSeconds(0.5f);
+        isFlipping = false;
+    }
 
 }
