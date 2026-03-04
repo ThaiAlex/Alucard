@@ -20,27 +20,23 @@ public class HurtPlayer : MonoBehaviour
             waitToHurt -= Time.deltaTime;
             if (waitToHurt <= 0)
             {
-                healthManager.HurtPlayer(damageToGive);
+                healthManager.HurtPlayer(damageToGive, transform);
                 waitToHurt = 1f; //om enemy är nära nog att röra vid player, vänta "x"f, ge "x" damage
             }
         }
     }
 
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            other.gameObject.GetComponent<HealthManager>().HurtPlayer(damageToGive);
+    //private void OnTriggerEnter2D(Collider2D other)
+    //{
+        //if (other.CompareTag("Player"))
+        //{
+            //other.gameObject.GetComponent<HealthManager>().HurtPlayer(damageToGive, transform);
             //om enemy colliderar med tag player, ge damage
-        }
-    }
-    private void OnTriggerStay2D(Collider2D other)
+        //}
+    //}
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (other.CompareTag("Player"))
-        {
-            isTouching = true;
-        }
+        isTouching = true;
     }
     private void OnTriggerExit2D(Collider2D other)
     {

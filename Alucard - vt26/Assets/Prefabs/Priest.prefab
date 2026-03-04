@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8786491517725627619}
   - component: {fileID: 3647674125616850936}
   - component: {fileID: 5050239109839400873}
+  - component: {fileID: 7945336989426730358}
   m_Layer: 0
   m_Name: Priest
   m_TagString: Untagged
@@ -289,3 +290,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.2, y: 0.02}
   m_EdgeRadius: 0.02
+--- !u!114 &7945336989426730358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6651522524510747607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31737bba5cdd989448285612e3016a20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HurtPlayer
+  damageToGive: 1

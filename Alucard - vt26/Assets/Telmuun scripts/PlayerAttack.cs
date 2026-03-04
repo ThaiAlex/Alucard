@@ -8,8 +8,8 @@ public class PlayerAttack : MonoBehaviour
     private bool attacking = false;
 
 
-    private float timeToAttack = 0.25f;
-    private float timer = 0f;
+    public float timeToAttack = 0.25f;
+    public float timer = 0f;
 
 
     void Start()

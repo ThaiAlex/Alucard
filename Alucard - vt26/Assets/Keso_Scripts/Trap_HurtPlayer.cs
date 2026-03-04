@@ -18,7 +18,7 @@ public class Trap_HurtPlayer : MonoBehaviour
             waitToHurt -= Time.deltaTime;
             if (waitToHurt <= 0)
             {
-                healthManager.HurtPlayer(damageToGive);
+                healthManager.HurtPlayer(damageToGive, transform);
                 waitToHurt = 1f; //om enemy är nära nog att röra vid player, vänta "x"f, ge "x" damage
             }
         }
@@ -27,7 +27,7 @@ public class Trap_HurtPlayer : MonoBehaviour
     {
         if (other.collider.tag == "Player")
         {
-            other.gameObject.GetComponent<HealthManager>().HurtPlayer(damageToGive);
+            other.gameObject.GetComponent<HealthManager>().HurtPlayer(damageToGive, transform);
             //om enemy colliderar med tag player, ge damage
         }
     }
