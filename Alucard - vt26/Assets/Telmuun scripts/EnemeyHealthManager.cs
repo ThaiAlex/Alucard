@@ -1,16 +1,22 @@
+using System;
 using UnityEngine;
 
 public class EnemeyHealthManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public int currentHealth;
+    public int maxHealth;
+
+    public void HurtEnemy(int damageToGive)
     {
-        
+        currentHealth -= damageToGive;
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    internal void Damage(int damage)
     {
-        
+        throw new NotImplementedException();
     }
 }

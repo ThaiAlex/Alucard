@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+
 
 public class AttackArea : MonoBehaviour
 {
@@ -13,7 +13,8 @@ public class AttackArea : MonoBehaviour
     {
         if (collider.GetComponent<EnemeyHealthManager>() != null)
         {
-            
+            EnemeyHealthManager health = collider.GetComponent<EnemeyHealthManager>();
+            health.Damage(damage);
         }
         
     }
