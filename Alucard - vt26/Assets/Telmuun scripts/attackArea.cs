@@ -1,8 +1,9 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class AttackArea : MonoBehaviour
 {
 
     private int damage = 3;
@@ -10,7 +11,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.GetComponent<>)() != null)
+        if (collider.GetComponent<EnemeyHealthManager>() != null)
         {
             
         }
