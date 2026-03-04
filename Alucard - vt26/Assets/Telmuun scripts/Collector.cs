@@ -6,7 +6,7 @@ public class Collector : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision) 
     {
-        Iltem item = collision.GetComponent<Iltem>();
+        IItem item = collision.GetComponent<IItem>();
         if(item != null)
         {
             item.Collect();
