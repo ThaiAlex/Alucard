@@ -68,13 +68,6 @@ public class Movement : MonoBehaviour
 
     }
 
-    public void FixedUpdate()
-    {
-        if (!isDashing)
-        {
-            rb.linearVelocity = new Vector2(mx * moveSpeed, rb.linearVelocityY);
-        }
-    }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
