@@ -19,10 +19,6 @@ public class Movement : MonoBehaviour
     private float cooldown = 2f;
 
 
-    public bool isFlipping = false;
-    public int facingDirection = 1;
-
-
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -31,6 +27,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer); // Kolla om spelaren är på marken
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded && !isDashing) // Om vi tycker på space, så låt spelaren hoppa
@@ -43,17 +40,19 @@ public class Movement : MonoBehaviour
             if (Input.GetKey(KeyCode.A) || (Input.GetKey(KeyCode.LeftArrow)))
             {
                 transform.Translate(Vector2.left * (Time.deltaTime * moveSpeed));
-
+                transform.localScale = new Vector3(-2.2f, 2.2f, 1f);
             }
 
             if (Input.GetKey(KeyCode.D) || (Input.GetKey(KeyCode.RightArrow)))
             {
                 transform.Translate(Vector2.right * (Time.deltaTime * moveSpeed));
-                StartCoroutine(Flip(-1f));
-
+                transform.localScale = new Vector3(2.2f, 2.2f, 1f);
             }
 
         }
+
+        
+
 
 
         if (canDash && Input.GetKeyDown(KeyCode.LeftShift) && (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)))
@@ -116,13 +115,5 @@ public class Movement : MonoBehaviour
 
     }
 
-    IEnumerator Flip(float direction)
-    {
-        isFlipping = true;
-        transform.Rotate(0, 180, 0);
-        facingDirection *= -1;
-        yield return new WaitForSeconds(0.5f);
-        isFlipping = false;
-    }
 
 }

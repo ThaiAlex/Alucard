@@ -179,6 +179,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8280028673278589475, guid: 31bf278f97a701f44aa16ec6a5e493a1, type: 3}
+      propertyPath: knockbackForce
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -601,6 +605,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 291696441}
   m_CullTransparentMesh: 1
+--- !u!1 &316760550 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6651522524510747607, guid: 15e9de4e6c5b666458db4d8ad3eff0d8, type: 3}
+  m_PrefabInstance: {fileID: 1261542989}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &316760561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316760550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63d4d71367b64194984f0a057679fb65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemeyHealthManager
+  currentHealth: 10
+  maxHealth: 10
 --- !u!1 &320226203
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,6 +1152,10 @@ PrefabInstance:
       propertyPath: facingDirection
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 3647674125616850936, guid: 15e9de4e6c5b666458db4d8ad3eff0d8, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6651522524510747607, guid: 15e9de4e6c5b666458db4d8ad3eff0d8, type: 3}
       propertyPath: m_Name
       value: Priest
@@ -1136,7 +1163,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6651522524510747607, guid: 15e9de4e6c5b666458db4d8ad3eff0d8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 316760561}
   m_SourcePrefab: {fileID: 100100000, guid: 15e9de4e6c5b666458db4d8ad3eff0d8, type: 3}
 --- !u!1 &1269298181
 GameObject:

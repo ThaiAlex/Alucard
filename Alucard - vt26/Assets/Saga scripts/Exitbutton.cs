@@ -5,9 +5,9 @@ using UnityEngine;
 public class Exitbutton : MonoBehaviour
 {
     public GameObject ThingIWantToHide; // panel
-    public void onClick() //när man klickar knappen
+    public void onClick() //nï¿½r man klickar knappen
     {
-        ThingIWantToHide.SetActive(false); //då tar man bort panelen 
+        ThingIWantToHide.SetActive(false); //dï¿½ tar man bort panelen 
     }
 }
 //Saga
