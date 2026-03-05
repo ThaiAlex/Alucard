@@ -53,9 +53,10 @@ MonoBehaviour:
   - groupID: Bite
     clips:
     - {fileID: 0}
-  - groupID: 
-    clips: []
-  - groupID: 
+  - groupID: Click
+    clips:
+    - {fileID: 8300000, guid: 854db8f6910124543819b9fef5046dc0, type: 3}
+  - groupID: Attack
     clips: []
 --- !u!114 &1900661762736060594
 MonoBehaviour:
@@ -88,6 +89,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: a299f9d82a844a748a8886d46ae6fd66, type: 3}
   - trackName: Castle
     clip: {fileID: 8300000, guid: c34497c41ea077b4b8e6262497be82fc, type: 3}
+  - trackName: MainMenu
+    clip: {fileID: 8300000, guid: 63bc0faa3ccffda419f746c5232cb51d, type: 3}
 --- !u!114 &720849579107960901
 MonoBehaviour:
   m_ObjectHideFlags: 0
