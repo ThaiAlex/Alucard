@@ -11,10 +11,11 @@ public class PlayerCombat : MonoBehaviour
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
+            print("attack");
             Attack();
         }
 
@@ -22,15 +23,15 @@ public class PlayerCombat : MonoBehaviour
 
     void Attack()
     {
-
+        print("Hej");
         animator.SetTrigger("Attack");
 
         // detect enemies in range of attack 
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint. position, attackrange, enemyLayers);
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackrange, enemyLayers);
 
         foreach(Collider2D enemy in hitEnemies)
         {
-            Debug.Log("We hit " + enemy.name);
+             Debug.Log("We hit" + enemy.name);
         }
 
 
