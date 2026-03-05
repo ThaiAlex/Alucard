@@ -38,6 +38,7 @@ public class EnemyFollowerPlayer : MonoBehaviour
                 Vector3 direction = player.transform.position - transform.position;
                 Debug.DrawRay(transform.position, direction, Color.green);
                 GetComponent<Enemy_Patrol>().enabled = false;
+
             }
             else
             {
