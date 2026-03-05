@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
     public bool isGrounded = false; // Om vi är på marken eller inte
     public LayerMask groundLayer; // Vilket lager har marken
     float mx;
+    public Animator animator;
 
 
     public float dashDistance = 10f;
@@ -35,23 +36,30 @@ public class Movement : MonoBehaviour
             rb.AddForce(transform.up * jumpForce);
         }
 
+        bool isWalking = false;
+
         if (!isDashing)
         {
-            if (Input.GetKey(KeyCode.A) || (Input.GetKey(KeyCode.LeftArrow)))
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
                 transform.Translate(Vector2.left * (Time.deltaTime * moveSpeed));
                 transform.localScale = new Vector3(-2.2f, 2.2f, 1f);
+                isWalking = true;
             }
 
-            if (Input.GetKey(KeyCode.D) || (Input.GetKey(KeyCode.RightArrow)))
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
                 transform.Translate(Vector2.right * (Time.deltaTime * moveSpeed));
                 transform.localScale = new Vector3(2.2f, 2.2f, 1f);
+                isWalking = true;
             }
-
         }
 
-        
+        animator.SetBool("isWalking", isWalking);
+        animator.SetBool("isJumping", !isGrounded);
+        animator.SetBool("isDashing", isDashing);
+
+
 
 
 
@@ -65,6 +73,12 @@ public class Movement : MonoBehaviour
             StartCoroutine(Dash(-1f));
         }
 
+        float speed = Mathf.Abs(Input.GetAxisRaw("Horizontal"));
+
+        animator.SetFloat("Speed", moveSpeed);
+        animator.SetBool("Grounded", isGrounded);
+        animator.SetBool("Dash", isDashing);
+        animator.SetFloat("VerticalVelocity", rb.linearVelocity.y);
 
     }
 
