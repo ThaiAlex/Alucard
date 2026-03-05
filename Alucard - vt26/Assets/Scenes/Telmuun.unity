@@ -302,7 +302,6 @@ GameObject:
   - component: {fileID: 159140824}
   - component: {fileID: 159140825}
   - component: {fileID: 159140826}
-  - component: {fileID: 159140827}
   m_Layer: 0
   m_Name: nene_main_char_0
   m_TagString: Player
@@ -436,7 +435,8 @@ MonoBehaviour:
   dashDistance: 10
   isDashing: 0
   canDash: 1
-  isFacingRight: 0
+  isFlipping: 0
+  facingDirection: 1
 --- !u!61 &159140824
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -531,18 +531,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.4859375
---- !u!114 &159140827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159140818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d8e630c2103235449262767e11295b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Attack
 --- !u!1 &652745386
 GameObject:
   m_ObjectHideFlags: 0
