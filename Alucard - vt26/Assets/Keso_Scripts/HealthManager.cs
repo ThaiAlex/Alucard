@@ -22,9 +22,10 @@ public class HealthManager : MonoBehaviour
     public void HurtPlayer(int damageToGive, Transform damageSource)
     {
         currentHealth -= damageToGive;
-        Vector2 knockbackDirection = new Vector2(transform.position.y > damageSource.position.y ? 10f : -10f, 0.5f).normalized;
+        Vector2 knockbackDirection = (transform.position- damageSource.position).normalized; // new Vector2(transform.position.y > damageSource.position.y ? 1f : 1f, 0.5f);
+        print(knockbackDirection);
         rb.linearVelocity = Vector2.zero; // Optional: reset velocity first
-        rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
+        rb.AddForce(knockbackDirection * knockbackForce + Vector2.up*10f, ForceMode2D.Impulse);
 
         if (currentHealth <= 0)
         {

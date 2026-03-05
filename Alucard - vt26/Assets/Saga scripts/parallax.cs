@@ -8,10 +8,10 @@ public class parallax : MonoBehaviour
     public GameObject cam; //kamera finns
     public float parallaxEffect; // parallax effekt finns
 
-    void Start() // När spelet startar
+    void Start() // Nï¿½r spelet startar
     {
         startpos = transform.position.x; //kamerans startposition
-        length = GetComponent<SpriteRenderer>().bounds.size.x; // längd på hur långt bilderna renderas
+        length = GetComponent<SpriteRenderer>().bounds.size.x; // lï¿½ngd pï¿½ hur lï¿½ngt bilderna renderas
     }
 
     void Update()
