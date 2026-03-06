@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 8786491517725627619}
   - component: {fileID: 7945336989426730358}
   - component: {fileID: 1351804138434753919}
-  - component: {fileID: 1490689218288887987}
   m_Layer: 0
   m_Name: Priest
   m_TagString: Untagged
@@ -109,7 +108,7 @@ Animator:
   m_GameObject: {fileID: 6651522524510747607}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 06c90728a713c18448b3ac0e55b361dd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -248,17 +247,3 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.23}
   m_Size: {x: 0.2, y: 0.05}
   m_Direction: 1
---- !u!114 &1490689218288887987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6651522524510747607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63d4d71367b64194984f0a057679fb65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemeyHealthManager
-  currentHealth: 10
-  maxHealth: 10
