@@ -3,48 +3,59 @@ using System.Collections;
 using System.Collections.Generic;
 public class PlayerCombat : MonoBehaviour
 {
-    public Animator animator;
+    //public Animator animator;
 
     public Transform attackPoint;
-    public float attackrange = 0.5f;
     public LayerMask enemyLayers;
+
+    public int attackDamage = 40;
+    public float attackrange = 0.5f;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
+    
+    
+        // public Animator animator;
+
+        
+
+        void Update()
         {
-            print("attack");
-            Attack();
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                Attack();
+            }
         }
 
-    }
-
-    void Attack()
-    {
-        print("Hej");
-        animator.SetTrigger("Attack");
-
-        // detect enemies in range of attack 
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackrange, enemyLayers);
-
-        foreach(Collider2D enemy in hitEnemies)
+        void Attack()
         {
-             Debug.Log("We hit" + enemy.name);
+            // animator.SetTrigger("Attack");
+
+            // detect enemies in range of attack 
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(
+                attackPoint.position,
+                attackrange,
+                enemyLayers
+            );
+
+            foreach (Collider2D enemy in hitEnemies)
+            {
+                Enemy enemyScript = enemy.GetComponent<Enemy>();
+
+                if (enemyScript != null)
+                {
+                    enemyScript.TakeDamage(attackDamage);
+                    Debug.Log("Hit enemy " + enemy.name);
+                }
+            }
         }
 
+        private void OnDrawGizmosSelected()
+        {
+            if (attackPoint == null)
+                return;
 
+            Gizmos.DrawWireSphere(attackPoint.position, attackrange);
+        }
     }
-
-    private void OnDrawGizmosSelected()
-    {
-        if (attackPoint == null)
-            return;
-
-        Gizmos.DrawWireSphere(attackPoint.position, attackrange);
-    }
-
-
-
-}
