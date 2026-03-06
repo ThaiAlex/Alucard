@@ -3,14 +3,16 @@ using UnityEngine;
 public class EnemyFollowerPlayer : MonoBehaviour
 {
     [SerializeField] private float speed = 1.5f;
-    [SerializeField] private LayerMask visionLayers; // layers the raycast can hit
+    [SerializeField] private LayerMask visionMask; // Only layers that block vision, Wall
 
     private GameObject player;
     private bool HasLineOfSight = false;
+    private Enemy_Patrol patrolScript;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        patrolScript = GetComponent<Enemy_Patrol>();
     }
 
     void Update()
@@ -24,32 +26,33 @@ public class EnemyFollowerPlayer : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         Vector2 direction = player.transform.position - transform.position;
         float distance = direction.magnitude;
 
-        RaycastHit2D ray = Physics2D.Raycast(
+        // Raycast only hits visionMask (walls)
+        RaycastHit2D hit = Physics2D.Raycast(
             transform.position,
             direction,
             distance,
-            visionLayers
+            visionMask
         );
 
-        if (ray.collider != null)
+        // If ray hits something, it's a wall cant see player
+        if (hit.collider == null)
         {
-            HasLineOfSight = ray.collider.CompareTag("Player");
-
-            if (HasLineOfSight)
-            {
-                Debug.DrawRay(transform.position, direction, Color.green);
-                GetComponent<Enemy_Patrol>().enabled = false;
-            }
-            else
-            {
-                Debug.DrawRay(transform.position, direction, Color.red);
-                GetComponent<Enemy_Patrol>().enabled = true;
-            }
+            HasLineOfSight = true;
+            Debug.DrawRay(transform.position, direction, Color.green);
+            if (patrolScript != null)
+                patrolScript.enabled = false;
+        }
+        else
+        {
+            HasLineOfSight = false;
+            Debug.DrawRay(transform.position, direction, Color.red);
+            if (patrolScript != null)
+                patrolScript.enabled = true;
         }
     }
 }
