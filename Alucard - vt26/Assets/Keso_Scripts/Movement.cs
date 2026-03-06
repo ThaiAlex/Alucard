@@ -35,7 +35,14 @@ public class Movement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded && !isDashing) // Om vi tycker på space, så låt spelaren hoppa
         {
             rb.AddForce(transform.up * jumpForce);
+            isJumping = true;
+            isGrounded = false;
         }
+       
+        
+
+
+        
         bool isWalking = false;
 
         if (!isDashing)
@@ -83,6 +90,7 @@ public class Movement : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
         isGrounded = true;
+        isJumping = false;
 
         print("collision" + collision.gameObject.name);
         if (collision.gameObject.GetComponent<Interactable>() == true)

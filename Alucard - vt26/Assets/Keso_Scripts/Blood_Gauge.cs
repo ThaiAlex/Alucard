@@ -1,7 +1,14 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Blood_Gauge : MonoBehaviour
 {
+    public int maxBlood;
+    public int currentBlood;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
