@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject bloodSplatter;
     public int maxHealth = 100;
     int currentHealth;
+    public int bloodSpill = 1;
 
     void Start()
     {
@@ -29,6 +30,8 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+        Blood_Gauge player = FindFirstObjectByType<Blood_Gauge>();
+        player.GainBlood(bloodSpill);
         Destroy(gameObject);
     }
 }
