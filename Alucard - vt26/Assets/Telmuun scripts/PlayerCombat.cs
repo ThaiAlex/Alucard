@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 public class PlayerCombat : MonoBehaviour
 {
-    //public Animator animator;
+    public Animator animator;
 
     public Transform attackPoint;
     public LayerMask enemyLayers;
@@ -30,9 +30,9 @@ public class PlayerCombat : MonoBehaviour
 
         void Attack()
         {
-            // animator.SetTrigger("Attack");
+            //animator.SetTrigger("Attack");
 
-            // detect enemies in range of attack 
+            //detect enemies in range of attack 
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(
                 attackPoint.position,
                 attackrange,
@@ -47,7 +47,8 @@ public class PlayerCombat : MonoBehaviour
                 {
                     enemyScript.TakeDamage(attackDamage);
                     Debug.Log("Hit enemy " + enemy.name);
-                }
+                SoundManager.Instance.PlaySound3D("HurtEnemy", transform.position);
+            }
             }
         }
 

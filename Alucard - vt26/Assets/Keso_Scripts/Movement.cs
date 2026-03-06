@@ -37,6 +37,7 @@ public class Movement : MonoBehaviour
             rb.AddForce(transform.up * jumpForce);
             isJumping = true;
             isGrounded = false;
+            SoundManager.Instance.PlaySound3D("Jump", transform.position);
         }
        
         
@@ -52,6 +53,7 @@ public class Movement : MonoBehaviour
                 transform.Translate(Vector2.left * (Time.deltaTime * moveSpeed));
                 transform.localScale = new Vector3(-2.2f, 2.2f, 1f);
                 isWalking = true;
+                SoundManager.Instance.PlaySound3D("Walk", transform.position);
             }
 
             if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
@@ -59,6 +61,7 @@ public class Movement : MonoBehaviour
                 transform.Translate(Vector2.right * (Time.deltaTime * moveSpeed));
                 transform.localScale = new Vector3(2.2f, 2.2f, 1f);
                 isWalking = true;
+                SoundManager.Instance.PlaySound3D("Walk", transform.position);
             }
         }
 
@@ -71,11 +74,12 @@ public class Movement : MonoBehaviour
         if (canDash && Input.GetKeyDown(KeyCode.LeftShift) && (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)))
         {
             StartCoroutine(Dash(1f));
-
+            SoundManager.Instance.PlaySound3D("Dash", transform.position);
         }
         if (canDash && Input.GetKeyDown(KeyCode.LeftShift) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)))
         {
             StartCoroutine(Dash(-1f));
+            SoundManager.Instance.PlaySound3D("Dash", transform.position);
         }
 
         float speed = Mathf.Abs(Input.GetAxisRaw("Horizontal"));

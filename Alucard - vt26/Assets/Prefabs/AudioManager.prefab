@@ -50,14 +50,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundLibrary
   soundEffects:
-  - groupID: Bite
+  - groupID: Jump
     clips:
-    - {fileID: 0}
-  - groupID: Click
+    - {fileID: 8300000, guid: 8234602008ceeae4497f3c9dd984c041, type: 3}
+  - groupID: Walk
     clips:
-    - {fileID: 8300000, guid: 854db8f6910124543819b9fef5046dc0, type: 3}
+    - {fileID: 8300000, guid: b1ac493872e042f42af14db274fd6623, type: 3}
   - groupID: Attack
-    clips: []
+    clips:
+    - {fileID: 8300000, guid: 0e5edb6bccf05984dad128fb1a9fc914, type: 3}
+  - groupID: Dash
+    clips:
+    - {fileID: 8300000, guid: 872198e73caa52e49ae21c20a44c18fe, type: 3}
+  - groupID: EnemyHurt
+    clips:
+    - {fileID: 8300000, guid: 794be7c4bd9e64c9bbb9776937807a9e, type: 3}
+    - {fileID: 8300000, guid: aa48101fd9bd24b82af88afb182a9bf5, type: 3}
+    - {fileID: 8300000, guid: ed042c87951ed40268592d7ca7a2de59, type: 3}
 --- !u!114 &1900661762736060594
 MonoBehaviour:
   m_ObjectHideFlags: 0
