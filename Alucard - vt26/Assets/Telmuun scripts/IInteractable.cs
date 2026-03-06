@@ -2,7 +2,7 @@ public interface IInteractable
 {
     // Telmuun 24
 
-    void Interact(); // Vad som händer när spelaren interagerar (t.ex. öppna kista)
+    void Interact(); // Vad som hï¿½nder nï¿½r spelaren interagerar (t.ex. ï¿½ppna kista)
 
-    bool CanInteract(); // Returnerar true/false om spelaren får interagera just nu
+    bool CanInteract(); // Returnerar true/false om spelaren fï¿½r interagera just nu
 }

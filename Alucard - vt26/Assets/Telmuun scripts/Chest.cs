@@ -4,43 +4,43 @@ using UnityEngine;
 //Telmuun su24
 public class Chest : MonoBehaviour, IInteractable
 {
-    public bool IsOpened { get; private set; } // om kistan är öppen eller inte
+    public bool IsOpened { get; private set; } // om kistan ï¿½r ï¿½ppen eller inte
 
-    public string ChestID { get; private set; } // unikt ID för kistan
-    public GameObject itemprefab; // föremål som droppas när kistan öppnas
-    public Sprite openedsprite; // sprite som visas när kistan är öppen
+    public string ChestID { get; private set; } // unikt ID fï¿½r kistan
+    public GameObject itemprefab; // fï¿½remï¿½l som droppas nï¿½r kistan ï¿½ppnas
+    public Sprite openedsprite; // sprite som visas nï¿½r kistan ï¿½r ï¿½ppen
 
-    // Start körs vid start
+    // Start kï¿½rs vid start
     void Start()
     {
-        ChestID ??= GlobalHelper.GenerateUniqueID(gameObject); // sätter unikt ID om det saknas
+        ChestID ??= GlobalHelper.GenerateUniqueID(gameObject); // sï¿½tter unikt ID om det saknas
     }
 
     public bool CanInteract()
     {
-        return !IsOpened; // går bara att interagera om den inte är öppen
+        return !IsOpened; // gï¿½r bara att interagera om den inte ï¿½r ï¿½ppen
     }
 
     public void PickUp()
     {
-        if (!CanInteract()) return; // stoppar om kistan redan är öppen
-        OpenChest(); // öppnar kistan
+        if (!CanInteract()) return; // stoppar om kistan redan ï¿½r ï¿½ppen
+        OpenChest(); // ï¿½ppnar kistan
     }
 
     private void OpenChest()
     {
-        SetOpened(true); // markerar kistan som öppen
+        SetOpened(true); // markerar kistan som ï¿½ppen
 
         if (itemprefab)
         {
-            GameObject droppedItem = Instantiate(itemprefab, transform.position + Vector3.down, Quaternion.identity); // skapar föremålet under kistan
+            GameObject droppedItem = Instantiate(itemprefab, transform.position + Vector3.down, Quaternion.identity); // skapar fï¿½remï¿½let under kistan
         }
 
     }
 
     public void SetOpened(bool opened)
     {
-        if (IsOpened = opened) // byter sprite när den öppnas
+        if (IsOpened = opened) // byter sprite nï¿½r den ï¿½ppnas
         {
             GetComponent<SpriteRenderer>().sprite = openedsprite;
         }
@@ -49,6 +49,6 @@ public class Chest : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        throw new System.NotImplementedException(); // måste finnas för IInteractable, men är inte implementerad än
+        throw new System.NotImplementedException(); // mï¿½ste finnas fï¿½r IInteractable, men ï¿½r inte implementerad ï¿½n
     }
 }

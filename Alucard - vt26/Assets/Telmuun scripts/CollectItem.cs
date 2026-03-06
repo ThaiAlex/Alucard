@@ -1,16 +1,21 @@
 using UnityEngine;
 
-public class ItemCollector : MonoBehaviour
+public class CollectItem : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public int value = 1;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            PlayerInventory inventory = other.GetComponent<PlayerInventory>();
+
+            if (inventory != null)
+            {
+                inventory.AddItem(value);
+            }
+
+            Destroy(gameObject);
+        }
     }
 }
