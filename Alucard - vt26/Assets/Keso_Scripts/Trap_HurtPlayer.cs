@@ -39,16 +39,9 @@ public class Trap_HurtPlayer : MonoBehaviour
             //om enemy colliderar med tag player, så är isTouching sant och enemy stannar för att attackera
         }
     }
-    private void OnCollisionExit2D(Collision2D other)
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        if (other.collider.tag == "Player")
-        {
-            isTouching = false;
-            waitToHurt = 2f;
-            //om enemy inte kolliderar med tag player, så är den falsk, och enemy...
-        }
+        isTouching = false;
     }
-
-
 
 }
