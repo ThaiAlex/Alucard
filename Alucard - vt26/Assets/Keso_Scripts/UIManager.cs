@@ -5,6 +5,7 @@ public class UIManager : MonoBehaviour
 {
     private HealthManager healthManager;
     public Slider healthBar;
+    public Slider Blood;
     void Start()
     {
         healthManager = FindFirstObjectByType<HealthManager>();
@@ -13,5 +14,7 @@ public class UIManager : MonoBehaviour
     {
         healthBar.maxValue = healthManager.maxHealth;
         healthBar.value = healthManager.currentHealth;
+
+
     }
 }

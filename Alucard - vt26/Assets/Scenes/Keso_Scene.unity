@@ -1366,6 +1366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
   healthBar: {fileID: 183367105}
+  Blood: {fileID: 0}
 --- !u!4 &1269298183
 Transform:
   m_ObjectHideFlags: 0
@@ -1965,6 +1966,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1672421532916568093, guid: b76bbac9c0053834ca9702ac88aeac8b, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1672421532916568093, guid: b76bbac9c0053834ca9702ac88aeac8b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5711050621740303483, guid: b76bbac9c0053834ca9702ac88aeac8b, type: 3}
       propertyPath: m_Name
       value: UI
@@ -2048,6 +2057,10 @@ PrefabInstance:
     - target: {fileID: 7333210189685186260, guid: b76bbac9c0053834ca9702ac88aeac8b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828686102579463839, guid: b76bbac9c0053834ca9702ac88aeac8b, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8996600333858782788, guid: b76bbac9c0053834ca9702ac88aeac8b, type: 3}
       propertyPath: m_AnchorMax.x
