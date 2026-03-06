@@ -15,6 +15,8 @@ public class Enemy_Patrol : MonoBehaviour
     private bool isWalking = true;
     private bool isFlipping;
 
+    public Animator animator;
+
 
     private void Start()
     {
@@ -44,6 +46,7 @@ public class Enemy_Patrol : MonoBehaviour
         if (isWalking)
         {
             rb.linearVelocity = Vector2.right * facingDirection * speed;
+            animator.SetBool("isWalking", isWalking);
         }
         else
         {
