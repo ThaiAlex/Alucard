@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        SoundManager.Instance.PlaySound3D("HurtEnemy", transform.position);
         Instantiate(bloodSplatter, transform.position + new Vector3(0,2,0), Quaternion.identity);
 
         if (currentHealth <= 0)
