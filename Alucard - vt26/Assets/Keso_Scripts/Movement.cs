@@ -7,7 +7,7 @@ public class Movement : MonoBehaviour
     [SerializeField, Range(1, 20)] public float moveSpeed; // Hur snabbt vår karaktär får röra sig
     public float jumpForce = 5f; // Vilken force hopp knappen kan göra
     public Transform groundCheck; // Kolla om spelaren har rört vid marken
-    public float groundCheckRadius = 0.2f; // Inom vilken radie kan vi röra marken
+    public float groundCheckRadius = 0.5f; // Inom vilken radie kan vi röra marken
     public bool isGrounded = false; // Om vi är på marken eller inte
     public LayerMask groundLayer; // Vilket lager har marken
     float mx;
@@ -16,6 +16,7 @@ public class Movement : MonoBehaviour
 
     public float dashDistance = 10f;
     public bool isDashing = false;
+    public bool isJumping = false;
     public bool canDash = true;
     private float cooldown = 2f;
 
@@ -35,7 +36,6 @@ public class Movement : MonoBehaviour
         {
             rb.AddForce(transform.up * jumpForce);
         }
-
         bool isWalking = false;
 
         if (!isDashing)
@@ -56,11 +56,9 @@ public class Movement : MonoBehaviour
         }
 
         animator.SetBool("isWalking", isWalking);
-        animator.SetBool("isJumping", !isGrounded);
+        animator.SetBool("isGrounded", isGrounded);
         animator.SetBool("isDashing", isDashing);
-
-
-
+        animator.SetBool("isJumping", isJumping);
 
 
         if (canDash && Input.GetKeyDown(KeyCode.LeftShift) && (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)))
@@ -75,17 +73,16 @@ public class Movement : MonoBehaviour
 
         float speed = Mathf.Abs(Input.GetAxisRaw("Horizontal"));
 
-        animator.SetFloat("Speed", moveSpeed);
+       /* animator.SetFloat("Speed", moveSpeed);
         animator.SetBool("Grounded", isGrounded);
         animator.SetBool("Dash", isDashing);
-        animator.SetFloat("VerticalVelocity", rb.linearVelocity.y);
+        animator.SetFloat("VerticalVelocity", rb.linearVelocity.y);*/
 
     }
 
-
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        isGrounded = false;
+        isGrounded = true;
 
         print("collision" + collision.gameObject.name);
         if (collision.gameObject.GetComponent<Interactable>() == true)
