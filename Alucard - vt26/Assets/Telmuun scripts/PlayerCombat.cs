@@ -47,7 +47,6 @@ public class PlayerCombat : MonoBehaviour
                 {
                     enemyScript.TakeDamage(attackDamage);
                     Debug.Log("Hit enemy " + enemy.name);
-                SoundManager.Instance.PlaySound3D("HurtEnemy", transform.position);
             }
             }
         }
