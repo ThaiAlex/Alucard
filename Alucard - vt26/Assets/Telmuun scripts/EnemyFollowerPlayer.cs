@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class EnemyFollowerPlayer : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class EnemyFollowerPlayer : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         patrolScript = GetComponent<Enemy_Patrol>();
+    
+        //enemy starts patrolling
+    
     }
 
     void Update()
@@ -23,6 +27,10 @@ public class EnemyFollowerPlayer : MonoBehaviour
                 transform.position,
                 player.transform.position,
                 speed * Time.deltaTime);
+       
+        //when enemy see player, move towards
+        
+        
         }
     }
 
@@ -53,6 +61,9 @@ public class EnemyFollowerPlayer : MonoBehaviour
             Debug.DrawRay(transform.position, direction, Color.red);
             if (patrolScript != null)
                 patrolScript.enabled = true;
+        
+        //draws line towards position of player. Red = enemy doesn't see player, Green = enemy sees player typse shit
+        
         }
     }
 }

@@ -9,10 +9,13 @@ public class ItemBar : MonoBehaviour
     {
         slider.maxValue = items;
         slider.value = 0;
+        //items have a max value, cannot exceed a certain number
+
     }
 
     public void SetItems(int items)
     {
         slider.value = items;
+        //items 
     }
 }

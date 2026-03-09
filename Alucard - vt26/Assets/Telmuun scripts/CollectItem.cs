@@ -6,16 +6,17 @@ public class CollectItem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player")) // Kolla om det är spelaren som träffar
         {
-            PlayerInventory inventory = other.GetComponent<PlayerInventory>();
+            PlayerInventory inventory = other.GetComponent<PlayerInventory>(); // Hämta spelarens inventory
 
-            if (inventory != null)
+            if (inventory != null)// Säkerställ att inventory finns
             {
-                inventory.AddItem(value);
+                inventory.AddItem(value);// Lägg till itemets värde i inventory
+
             }
 
-            Destroy(gameObject);
+            Destroy(gameObject); // ta bort itemet från scenen
         }
     }
 }

@@ -133,11 +133,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8707690105239650052, guid: bd08e122ebd92fe4e81e8ef127c6d145, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.465851
+      value: -9.49
       objectReference: {fileID: 0}
     - target: {fileID: 8707690105239650052, guid: bd08e122ebd92fe4e81e8ef127c6d145, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.7869456
+      value: -2.08
       objectReference: {fileID: 0}
     - target: {fileID: 8707690105239650052, guid: bd08e122ebd92fe4e81e8ef127c6d145, type: 3}
       propertyPath: m_LocalPosition.z
@@ -174,28 +174,26 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2526859707518844496, guid: bd08e122ebd92fe4e81e8ef127c6d145, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 86014665}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd08e122ebd92fe4e81e8ef127c6d145, type: 3}
---- !u!1 &86014664 stripped
+--- !u!1 &110422495 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 2526859707518844496, guid: bd08e122ebd92fe4e81e8ef127c6d145, type: 3}
-  m_PrefabInstance: {fileID: 29322764}
+  m_CorrespondingSourceObject: {fileID: 168177169143143399, guid: b76bbac9c0053834ca9702ac88aeac8b, type: 3}
+  m_PrefabInstance: {fileID: 1148689283}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &86014665
+--- !u!114 &110422499
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 86014664}
+  m_GameObject: {fileID: 110422495}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3bb214f6a8fb2c4aa1d036e9b808e8c, type: 3}
+  m_Script: {fileID: 11500000, guid: aca5f64c9fbaa72448ce01b30eb23a65, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RedPotion
+  m_EditorClassIdentifier: Assembly-CSharp::ItemBar
+  slider: {fileID: 1464743979}
 --- !u!1 &159140818
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,7 +206,6 @@ GameObject:
   - component: {fileID: 159140821}
   - component: {fileID: 159140819}
   - component: {fileID: 159140823}
-  - component: {fileID: 159140825}
   - component: {fileID: 159140826}
   - component: {fileID: 159140827}
   - component: {fileID: 159140828}
@@ -315,7 +312,7 @@ Transform:
   m_GameObject: {fileID: 159140818}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.75, y: -1.91, z: 0}
+  m_LocalPosition: {x: -7.75, y: 0.05, z: 0}
   m_LocalScale: {x: 1.783175, y: 1.5633063, z: 4.7594}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -348,18 +345,6 @@ MonoBehaviour:
   isDashing: 0
   isJumping: 0
   canDash: 1
---- !u!114 &159140825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159140818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a90a9bd2bf65ae4a8cef824fadf03a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Collector
 --- !u!58 &159140826
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -850,7 +835,7 @@ Transform:
   m_GameObject: {fileID: 987281718}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.36, y: -3, z: 0}
+  m_LocalPosition: {x: -2.2, y: -3, z: 0}
   m_LocalScale: {x: 15.000301, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1051,6 +1036,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1672421532916568093, guid: b76bbac9c0053834ca9702ac88aeac8b, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1672421532916568093, guid: b76bbac9c0053834ca9702ac88aeac8b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5711050621740303483, guid: b76bbac9c0053834ca9702ac88aeac8b, type: 3}
       propertyPath: m_Name
       value: UI
@@ -1150,6 +1143,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5711050621740303483, guid: b76bbac9c0053834ca9702ac88aeac8b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1148165850}
+    - targetCorrespondingSourceObject: {fileID: 168177169143143399, guid: b76bbac9c0053834ca9702ac88aeac8b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 110422499}
   m_SourcePrefab: {fileID: 100100000, guid: b76bbac9c0053834ca9702ac88aeac8b, type: 3}
 --- !u!1 &1265526999
 GameObject:
@@ -1351,6 +1347,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1464743979 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6773607157419194882, guid: b76bbac9c0053834ca9702ac88aeac8b, type: 3}
+  m_PrefabInstance: {fileID: 1148689283}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1 &1532325578
 GameObject:
   m_ObjectHideFlags: 0
@@ -1440,7 +1447,7 @@ Transform:
   m_GameObject: {fileID: 1532325578}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.01, y: -2.26, z: 0}
+  m_LocalPosition: {x: -4.4, y: 0.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
