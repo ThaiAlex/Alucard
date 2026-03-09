@@ -15,7 +15,7 @@ public class HurtPlayer : MonoBehaviour
     }
     void Update()
     {
-        if (isTouching)
+        if (isTouching == true)
         {
             waitToHurt -= Time.deltaTime;
             if (waitToHurt <= 0)
@@ -26,22 +26,21 @@ public class HurtPlayer : MonoBehaviour
         }
     }
 
-    //private void OnTriggerEnter2D(Collider2D other)
-    //{
-        //if (other.CompareTag("Player"))
-        //{
-            //other.gameObject.GetComponent<HealthManager>().HurtPlayer(damageToGive, transform);
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            other.gameObject.GetComponent<HealthManager>().HurtPlayer(damageToGive, transform);
             //om enemy colliderar med tag player, ge damage
-        //}
-    //}
+        }
+    }
     private void OnTriggerStay2D(Collider2D collision)
     {
         isTouching = true;
     }
-    private void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         isTouching = false;
-        waitToHurt = 2f;
     }
 
 }
