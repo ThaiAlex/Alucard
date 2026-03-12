@@ -53,7 +53,6 @@ public class Movement : MonoBehaviour
                 transform.Translate(Vector2.left * (Time.deltaTime * moveSpeed));
                 transform.localScale = new Vector3(-2.2f, 2.2f, 1f);
                 isWalking = true;
-                
             }
 
             if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
@@ -61,7 +60,11 @@ public class Movement : MonoBehaviour
                 transform.Translate(Vector2.right * (Time.deltaTime * moveSpeed));
                 transform.localScale = new Vector3(2.2f, 2.2f, 1f);
                 isWalking = true;
-                
+            }
+
+            if (isWalking == true)
+            {
+                SoundManager.Instance.PlaySound3D("Walk", transform.position);
             }
         }
 
