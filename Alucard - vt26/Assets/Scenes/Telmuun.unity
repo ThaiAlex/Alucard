@@ -312,7 +312,7 @@ Transform:
   m_GameObject: {fileID: 159140818}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.75, y: 0.05, z: 0}
+  m_LocalPosition: {x: 5.74, y: 1.74, z: 0}
   m_LocalScale: {x: 1.783175, y: 1.5633063, z: 4.7594}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -393,6 +393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb0ec79324bf1f4980fc3bfb72df1f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
+  animator: {fileID: 0}
   attackPoint: {fileID: 1127296387}
   enemyLayers:
     serializedVersion: 2
@@ -454,12 +455,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 159140818}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d23baf5edc583e34183bdcf3d0725e49, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e26e264da4292145840e2bce0007d02, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInventory
-  currentItems: 0
-  maxItems: 10
-  itemBar: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::HotbarManager
+  hotbar:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  slotImages: []
 --- !u!1 &652745386
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,24 +1014,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 159140822}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1148165849 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5711050621740303483, guid: b76bbac9c0053834ca9702ac88aeac8b, type: 3}
-  m_PrefabInstance: {fileID: 1148689283}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1148165850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1148165849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aca5f64c9fbaa72448ce01b30eb23a65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ItemBar
-  slider: {fileID: 0}
 --- !u!1001 &1148689283
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1140,9 +1126,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5711050621740303483, guid: b76bbac9c0053834ca9702ac88aeac8b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1148165850}
     - targetCorrespondingSourceObject: {fileID: 168177169143143399, guid: b76bbac9c0053834ca9702ac88aeac8b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 110422499}
@@ -1586,6 +1569,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   bloodSplatter: {fileID: 0}
   maxHealth: 100
+  bloodSpill: 1
 --- !u!1 &1597147348
 GameObject:
   m_ObjectHideFlags: 0
@@ -2160,7 +2144,7 @@ Transform:
   m_GameObject: {fileID: 1724218359}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.7, y: -1.91, z: 0}
+  m_LocalPosition: {x: 16.19, y: 2.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2180,9 +2164,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 1860467037}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3bb214f6a8fb2c4aa1d036e9b808e8c, type: 3}
+  m_Script: {fileID: 11500000, guid: 496420dcdd123f64886a920b273e64fa, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RedPotion
+  m_EditorClassIdentifier: Assembly-CSharp::ExampleItemUse
+--- !u!114 &1860467039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860467037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32c1bdcca41c4e4b8e880f09f5f2b0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickupItem
+--- !u!114 &1860467040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860467037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48f5cb59b46822e49bf413edcce41584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  itemName: ItemPotion
+  icon: {fileID: 0}
 --- !u!1 &1870388597
 GameObject:
   m_ObjectHideFlags: 0
@@ -2535,11 +2545,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8707690105239650052, guid: bd08e122ebd92fe4e81e8ef127c6d145, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.29
+      value: 1.45
       objectReference: {fileID: 0}
     - target: {fileID: 8707690105239650052, guid: bd08e122ebd92fe4e81e8ef127c6d145, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.22
+      value: -0.55
       objectReference: {fileID: 0}
     - target: {fileID: 8707690105239650052, guid: bd08e122ebd92fe4e81e8ef127c6d145, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2577,6 +2587,12 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2526859707518844496, guid: bd08e122ebd92fe4e81e8ef127c6d145, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1860467040}
+    - targetCorrespondingSourceObject: {fileID: 2526859707518844496, guid: bd08e122ebd92fe4e81e8ef127c6d145, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1860467039}
     - targetCorrespondingSourceObject: {fileID: 2526859707518844496, guid: bd08e122ebd92fe4e81e8ef127c6d145, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1860467038}
