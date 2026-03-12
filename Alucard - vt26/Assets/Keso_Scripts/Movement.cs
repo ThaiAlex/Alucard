@@ -1,14 +1,15 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
     Rigidbody2D rb; //Rigidbody2D
-    [SerializeField, Range(1, 20)] public float moveSpeed; // Hur snabbt vår karaktär får röra sig
-    public float jumpForce = 5f; // Vilken force hopp knappen kan göra
-    public Transform groundCheck; // Kolla om spelaren har rört vid marken
-    public float groundCheckRadius = 0.5f; // Inom vilken radie kan vi röra marken
-    public bool isGrounded = false; // Om vi är på marken eller inte
+    [SerializeField, Range(1, 20)] public float moveSpeed; // Hur snabbt vï¿½r karaktï¿½r fï¿½r rï¿½ra sig
+    public float jumpForce = 5f; // Vilken force hopp knappen kan gï¿½ra
+    public Transform groundCheck; // Kolla om spelaren har rï¿½rt vid marken
+    public float groundCheckRadius = 0.5f; // Inom vilken radie kan vi rï¿½ra marken
+    public bool isGrounded = false; // Om vi ï¿½r pï¿½ marken eller inte
     public LayerMask groundLayer; // Vilket lager har marken
     float mx;
     public Animator animator;
@@ -26,13 +27,15 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+ 
+
     // Update is called once per frame
     void Update()
     {
         
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer); // Kolla om spelaren är på marken
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer); // Kolla om spelaren ï¿½r pï¿½ marken
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && !isDashing) // Om vi tycker på space, så låt spelaren hoppa
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && !isDashing) // Om vi tycker pï¿½ space, sï¿½ lï¿½t spelaren hoppa
         {
             rb.AddForce(transform.up * jumpForce);
             isJumping = true;
@@ -106,6 +109,7 @@ public class Movement : MonoBehaviour
 
         }
 
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -115,6 +119,14 @@ public class Movement : MonoBehaviour
             collision.gameObject.GetComponent<Interactable>().Interact();
         }
 
+        if (collision.tag == ("Teleporter"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        if (collision.tag == ("Reciever"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
 
