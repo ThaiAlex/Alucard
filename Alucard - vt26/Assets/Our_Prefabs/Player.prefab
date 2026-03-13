@@ -160,7 +160,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  animator: {fileID: 0}
+  animator: {fileID: 2812191246816237411}
+  walkSoundDelay: 0.4
   dashDistance: 20
   isDashing: 0
   isJumping: 0
@@ -179,7 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HealthManager
   maxHealth: 8
   currentHealth: 8
-  knockbackForce: 15
+  knockbackForce: 5
 --- !u!50 &8450492283310324705
 Rigidbody2D:
   serializedVersion: 5
@@ -345,6 +346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb0ec79324bf1f4980fc3bfb72df1f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
+  animator: {fileID: 0}
   attackPoint: {fileID: 3285532847976121912}
   enemyLayers:
     serializedVersion: 2
