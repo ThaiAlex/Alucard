@@ -166,6 +166,7 @@ MonoBehaviour:
   isDashing: 0
   isJumping: 0
   canDash: 1
+  cooldown: 2
 --- !u!114 &8280028673278589475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,7 +353,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   attackDamage: 40
-  attackrange: 0.5
+  attackrange: 1
 --- !u!1 &4690209148380335495
 GameObject:
   m_ObjectHideFlags: 0
