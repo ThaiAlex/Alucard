@@ -345,6 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb0ec79324bf1f4980fc3bfb72df1f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
+  animator: {fileID: 0}
   attackPoint: {fileID: 3285532847976121912}
   enemyLayers:
     serializedVersion: 2
@@ -391,6 +392,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3285532847976121912}
+  - component: {fileID: 1980332068911720552}
   m_Layer: 0
   m_Name: attackPoint
   m_TagString: Untagged
@@ -413,3 +415,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7550660391388210469}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1980332068911720552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6740958323868202647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16ec7e515b0d5994880653dbaf97e2fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractionDetector
+  interactionIcon: {fileID: 4263925490581151197, guid: 237114e261c10954799b7a7387282966, type: 3}
