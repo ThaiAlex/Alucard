@@ -21,7 +21,7 @@ public class Movement : MonoBehaviour
     public bool isDashing = false;
     public bool isJumping = false;
     public bool canDash = true;
-    private float cooldown = 2f;
+    public float cooldown = 2f;
 
 
     private void Start()

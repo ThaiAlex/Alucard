@@ -9,7 +9,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject bloodSplatter;
     public int maxHealth = 100;
     int currentHealth;
-    public int bloodSpill = 1;
+    public int bloodSpill = +1;
+    private Blood_Gauge Blood_Gauge;
 
     void Start()
     {
