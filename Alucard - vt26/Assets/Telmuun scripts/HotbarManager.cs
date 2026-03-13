@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class HotbarManager : MonoBehaviour
 {
-    public Item[] hotbar = new Item[9];
+    public Item[] hotbar = new Item[4];
     public Image[] slotImages;
 
     int selectedSlot = 0;
@@ -16,10 +16,6 @@ public class HotbarManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha3)) SelectSlot(2);
         if (Input.GetKeyDown(KeyCode.Alpha4)) SelectSlot(3);
         if (Input.GetKeyDown(KeyCode.Alpha5)) SelectSlot(4);
-        if (Input.GetKeyDown(KeyCode.Alpha6)) SelectSlot(5);
-        if (Input.GetKeyDown(KeyCode.Alpha7)) SelectSlot(6);
-        if (Input.GetKeyDown(KeyCode.Alpha8)) SelectSlot(7);
-        if (Input.GetKeyDown(KeyCode.Alpha9)) SelectSlot(8);
 
         if (Input.GetMouseButtonDown(0))
         {
