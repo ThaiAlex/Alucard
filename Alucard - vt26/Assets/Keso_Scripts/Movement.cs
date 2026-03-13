@@ -13,6 +13,8 @@ public class Movement : MonoBehaviour
     public LayerMask groundLayer; // Vilket lager har marken
     float mx;
     public Animator animator;
+    public float walkSoundDelay = 0.4f;
+    private float walkTimer = 0f;
 
 
     public float dashDistance = 10f;
@@ -65,9 +67,19 @@ public class Movement : MonoBehaviour
                 isWalking = true;
             }
 
-            if (isWalking == true)
+            if (isWalking)
             {
-                SoundManager.Instance.PlaySound3D("Walk", transform.position);
+                walkTimer -= Time.deltaTime;
+
+                if (walkTimer <= 0f)
+                {
+                    SoundManager.Instance.PlaySound3D("Walk", transform.position);
+                    walkTimer = walkSoundDelay;
+                }
+            }
+            else
+            {
+                walkTimer = 0f;
             }
         }
 
