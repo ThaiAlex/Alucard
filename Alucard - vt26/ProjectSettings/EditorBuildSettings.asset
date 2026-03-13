@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Keso_Scene.unity
     guid: 70d9833466cc0594ebd32de5c53ec127
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: 1a3a495c6f98c3f429606385b2588373
   - enabled: 1

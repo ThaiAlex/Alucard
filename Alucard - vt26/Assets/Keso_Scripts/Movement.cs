@@ -27,6 +27,7 @@ public class Movement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        GetComponent<Animator>();
     }
 
  
@@ -34,9 +35,9 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer); // Kolla om spelaren �r p� marken
-
+       
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded && !isDashing) // Om vi tycker p� space, s� l�t spelaren hoppa
         {
             rb.AddForce(transform.up * jumpForce);
@@ -45,10 +46,6 @@ public class Movement : MonoBehaviour
             SoundManager.Instance.PlaySound3D("Jump", transform.position);
         }
        
-        
-
-
-        
         bool isWalking = false;
 
         if (!isDashing)
