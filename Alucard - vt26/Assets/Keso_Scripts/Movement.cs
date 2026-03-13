@@ -131,14 +131,10 @@ public class Movement : MonoBehaviour
             collision.gameObject.GetComponent<Interactable>().Interact();
         }
 
-        if (collision.tag == ("Teleporter"))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-        if (collision.tag == ("Reciever"))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
+       if (collision.tag == ("Teleporter"))
+        { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); }
+       //if (collision.tag == ("Reciever"))
+       // {  SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); }
     }
 
 
